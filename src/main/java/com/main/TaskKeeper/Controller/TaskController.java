@@ -48,9 +48,14 @@ public class TaskController {
         Task taskUpdate = taksRepository.save(taskDetails);
         return ResponseEntity.ok(task);
     }
+    /*
     @CrossOrigin(origins = "http://localhost:4200/")
     @DeleteMapping("tasks/{id}")
     public void deleteTask(@PathVariable Long id) {
         taksRepository.deleteById(id);
     }
+
+     */
+
+
 }
