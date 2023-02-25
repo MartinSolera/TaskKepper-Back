@@ -32,17 +32,18 @@ public class ListarPDF extends AbstractPdfView {
                                     PdfWriter writer, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         // Obtener la lista de tareas del modelo
-        List<Task> tasks = (List<Task>) model.get("tasks");
+        List<Task> listTask = (List<Task>) model.get("tasks");
+
+        PdfPTable tableTask = new PdfPTable(2);
 
         // Configurar el tamaño de la página
         document.setPageSize(PageSize.A4);
 
-        // Añadir un párrafo por cada tarea
-        for(Task task : tasks) {
-            Paragraph paragraph = new Paragraph(task.getName());
-            document.add(paragraph);
-        }
-
+        listTask.forEach(task -> {
+            tableTask.addCell(task.getName());
+            tableTask.addCell(task.getDescription());
+        });
+        document.add(tableTask);
     }
 
 }
