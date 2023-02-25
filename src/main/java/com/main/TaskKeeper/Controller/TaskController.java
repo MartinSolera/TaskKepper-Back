@@ -20,25 +20,25 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @GetMapping("/tasks")
     public List<Task> listAll(){
         return taskService.listAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @PostMapping("/tasks")
     public Task saveTask(@RequestBody Task task){
         return taskService.saveTask(task);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200/")
+
     @DeleteMapping("/tasks/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200/")
+
     @DeleteMapping("/tasks/deleteAll")
     public void deleteAll(){
         taskService.deleteAll();
