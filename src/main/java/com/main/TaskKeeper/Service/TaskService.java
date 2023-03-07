@@ -17,25 +17,25 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-    @GetMapping("/tasks")
     public List<Task> listAll() {
         return taskRepository.findAll();
     }
 
-    @PostMapping("/tasks")
+
     public Task saveTask(@RequestBody Task task) {
         return taskRepository.save(task);
     }
 
-    @DeleteMapping("/tasks/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskRepository.deleteById(id);
     }
 
-    @DeleteMapping("/tasks/deleteAll")
+
     public void deleteAll(){
         taskRepository.deleteAll();
     }
+
+
 
 
 }
