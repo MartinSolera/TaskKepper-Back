@@ -17,8 +17,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
+import java.util.EmptyStackException;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 
 @Component("/tasks")
@@ -34,6 +36,11 @@ public class ListarPDF extends AbstractPdfView {
 
         // Obtener la lista de tareas del modelo
         List<Task> listTask = (List<Task>) model.get("tasks");
+
+        if(listTask.isEmpty()){
+            throw new RuntimeException("La lista que intentas convertir esta vacia");
+        }
+
         PdfPTable tableTask = new PdfPTable(2);
 
         // Configurar el tamaño de la página
@@ -48,4 +55,3 @@ public class ListarPDF extends AbstractPdfView {
 
 }
 
-///add
