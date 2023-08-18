@@ -16,7 +16,6 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-
     public Task saveTask(@RequestBody Task task) {
         return taskRepository.save(task);
     }
@@ -24,7 +23,6 @@ public class TaskService {
     public void deleteTask(@PathVariable Long id) {
         taskRepository.deleteById(id);
     }
-
 
     public void deleteAll(){
         taskRepository.deleteAll();
