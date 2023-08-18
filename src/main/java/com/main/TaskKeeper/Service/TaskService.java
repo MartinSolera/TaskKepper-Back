@@ -1,14 +1,9 @@
 package com.main.TaskKeeper.Service;
-
-import com.main.TaskKeeper.Exceptions.ResourceNotFoundException;
 import com.main.TaskKeeper.Model.Task;
 import com.main.TaskKeeper.Repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.ApplicationScope;
-
 import java.util.List;
 
 @Service

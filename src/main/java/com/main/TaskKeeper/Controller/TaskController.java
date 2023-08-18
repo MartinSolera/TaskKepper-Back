@@ -1,20 +1,14 @@
 package com.main.TaskKeeper.Controller;
 
-import com.main.TaskKeeper.Exceptions.ResourceNotFoundException;
 import com.main.TaskKeeper.Model.Task;
 import com.main.TaskKeeper.Repository.TaskRepository;
 import com.main.TaskKeeper.Service.TaskService;
 import com.main.TaskKeeper.Util.ListarPDF;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/")
@@ -34,7 +28,6 @@ public class TaskController {
         return taskService.listAll();
     }
 
-
     @GetMapping("/tasksPDF")
     public ModelAndView listAllTasks() {
         List<Task> tasks = taskService.listAll();
@@ -48,16 +41,17 @@ public class TaskController {
         return taskService.saveTask(task);
     }
 
-
     @DeleteMapping("/tasks/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
 
-
+    /*
     @DeleteMapping("/tasks/deleteAll")
     public void deleteAll(){
         taskService.deleteAll();
     }
+    */
+
 
 }
