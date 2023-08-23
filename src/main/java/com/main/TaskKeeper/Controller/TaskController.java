@@ -5,6 +5,7 @@ import com.main.TaskKeeper.Repository.TaskRepository;
 import com.main.TaskKeeper.Service.TaskService;
 import com.main.TaskKeeper.Util.ListarPDF;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
@@ -52,16 +53,11 @@ public class TaskController {
         return taskService.saveTask(task);
     }
 
-
-
-
-
-    /*
     @DeleteMapping("/tasks/deleteAll")
-    public void deleteAll(){
+    public ResponseEntity<String> deleteAll(){
         taskService.deleteAll();
+        return ResponseEntity.noContent().build();
     }
-    */
 
 
 }
