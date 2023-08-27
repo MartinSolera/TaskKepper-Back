@@ -5,9 +5,13 @@ import com.main.TaskKeeper.Repository.TaskRepository;
 import com.main.TaskKeeper.Service.TaskService;
 import com.main.TaskKeeper.Util.ListarPDF;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 
@@ -58,6 +62,12 @@ public class TaskController {
         taskService.deleteAll();
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/fechas/{fecha}")
+    public Long getDataCalendar(@PathVariable @DateTimeFormat(pattern = "MM-dd-yyyy") LocalDate fecha){
+        return taskService.getDataCalendar(fecha);
+    }
+
 
 
 }
