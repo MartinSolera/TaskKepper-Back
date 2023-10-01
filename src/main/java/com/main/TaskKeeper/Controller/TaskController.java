@@ -57,16 +57,6 @@ public class TaskController {
         return taskService.saveTask(task);
     }
 
-
-
-
-
-
-
-
-    //a/sd
-
-
     @DeleteMapping("/tasks/deleteAll")
     public ResponseEntity<String> deleteAll(){
         taskService.deleteAll();
