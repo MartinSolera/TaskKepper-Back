@@ -18,7 +18,6 @@ import java.util.Map;
 @Component("/tasks")
 public class ListarPDF extends AbstractPdfView {
 
-
     @Autowired
     TaskService service;
 
