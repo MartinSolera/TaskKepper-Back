@@ -19,7 +19,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TaskController {
 
-    ///Probando solucionar git asdasdasdasd
     @Autowired
     private TaskRepository taksRepository;
 
@@ -58,18 +57,13 @@ public class TaskController {
         return taskService.saveTask(task);
     }
 
-
-
-
-
-
-
-
     @DeleteMapping("/tasks/deleteAll")
     public ResponseEntity<String> deleteAll(){
         taskService.deleteAll();
         return ResponseEntity.noContent().build();
     }
+
+    ///------------------- TASK ----------------------
 
     @GetMapping("/fechas/{fecha}")
     public Long getDataCalendar(@PathVariable @DateTimeFormat(pattern = "MM-dd-yyyy") LocalDate fecha){
