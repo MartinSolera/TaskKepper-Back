@@ -12,8 +12,8 @@ import java.time.LocalDate;
 public class Actividad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_actividad")
-    private Long idActividad;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "descripcion")
     private String descripcion;
