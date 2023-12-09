@@ -67,7 +67,7 @@ public class TaskController {
 
     @GetMapping("/fechas/{fecha}")
     public Long getDataCalendar(@PathVariable @DateTimeFormat(pattern = "MM-dd-yyyy") LocalDate fecha){
-        return taskService.getDataCalendar(fecha);
+        return taskService.calculateWithOutEndDate(fecha);
     }
 
 }

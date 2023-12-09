@@ -21,6 +21,10 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
+
+    private static LocalDate today = LocalDate.now();
+
+
     public List<Task> listAll() {
         return taskRepository.findAll();
     }
@@ -38,15 +42,17 @@ public class TaskService {
     }
 
     ///------------------- TASK ----------------------
-    public Long getDataCalendar(@PathVariable LocalDate fecha){
-        LocalDate fechaInicio = fecha;
-        LocalDate fechaActual = LocalDate.now();
-
-        long diferenciaFechas = ChronoUnit.DAYS.between(fechaInicio, fechaActual);
-
+    public Long calculateWithOutEndDate (@PathVariable LocalDate fecha){
+        long diferenciaFechas = ChronoUnit.DAYS.between(fecha, today);
         return diferenciaFechas;
     }
 
+    //------------------------------------------------
+/*
+    public Long calculateWithEnd (@PathVariable LocalDate startDate, LocalDate endDate){
+
+    }
+*/
 
 
 
