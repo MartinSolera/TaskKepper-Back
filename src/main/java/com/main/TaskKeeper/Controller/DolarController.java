@@ -1,7 +1,6 @@
 package com.main.TaskKeeper.Controller;
 
 import com.main.TaskKeeper.Model.Dolar;
-import com.main.TaskKeeper.Repository.DolarRepository;
 import com.main.TaskKeeper.Service.DolarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,9 +14,6 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:4200")
 public class DolarController {
-
-    @Autowired
-    private DolarRepository dolarRepository;
 
     @Autowired
     private DolarService dolarService;
