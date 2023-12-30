@@ -16,7 +16,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class DolarController {
 
-    //private final String baseURL = "https://dolarapi.com";
     @Autowired
     private DolarRepository dolarRepository;
 
@@ -24,13 +23,7 @@ public class DolarController {
     private DolarService dolarService;
 
     @GetMapping("/dolar")
-    public String dolar(){
-        return "Probando dolar";
+    public List<Dolar> dolarAllDevices(){
+        return dolarService.getDolarInfoAllDevices();
     }
-
-    @GetMapping("/dolar2")
-    public List<Dolar> dolar2(){
-        return dolarService.getDolarInfo();
-    }
-
 }
