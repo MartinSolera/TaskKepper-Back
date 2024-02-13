@@ -45,8 +45,6 @@ public class ActividadController {
         return fechaInicio;
     }
 
-    ///-----------------------------------
-
     @GetMapping("/fechas/calculate-inicio1/{fecha}")
     public Long getDataCalendar(@PathVariable @DateTimeFormat(pattern = "MM-dd-yyyy") LocalDate fecha){
         return actividadService.calculateWithOutEndDate(fecha);
