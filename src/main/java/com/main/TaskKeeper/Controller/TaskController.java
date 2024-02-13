@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -65,10 +65,15 @@ public class TaskController {
     }
 
     ///------------------- TASK ----------------------
-
     @GetMapping("/fechas/{fecha}")
     public Long getDataCalendar(@PathVariable @DateTimeFormat(pattern = "MM-dd-yyyy") LocalDate fecha){
         return taskService.calculateWithOutEndDate(fecha);
+    }
+
+
+    @GetMapping("task/{id}")
+    public Optional<Task> getTaskById(@PathVariable Long id){
+        return taskService.getTaskById(id);
     }
 
 

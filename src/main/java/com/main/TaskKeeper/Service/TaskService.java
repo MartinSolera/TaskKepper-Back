@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -48,7 +49,10 @@ public class TaskService {
         return diferenciaFechas;
     }
 
-    //------------------------------------------------
+    public Optional<Task> getTaskById(@PathVariable Long id){
+        return taskRepository.findById(id);
+    }
+
 
 
 
