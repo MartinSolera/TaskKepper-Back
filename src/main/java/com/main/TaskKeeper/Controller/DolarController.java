@@ -22,4 +22,9 @@ public class DolarController {
     public List<Dolar> dolarAllDevices(){
         return dolarService.getDolarInfoAllDevices();
     }
+
+    @GetMapping("/dolar/filtered")
+    public List<Dolar> dolarDevicesFiltered(){
+        return dolarService.getDolarInfoFiltered();
+    }
 }
