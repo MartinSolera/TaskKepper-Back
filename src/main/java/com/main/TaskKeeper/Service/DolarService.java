@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,11 +30,24 @@ public class DolarService {
 
         for (Dolar dolar : listDolar ){
             if (!dolar.getCasa().equals(casaFiltered)){
-                listDolarFiltered.add(dolar);
+                if (dolar.getFechaActualizacion() != null){
+                    LocalDateTime dateUpdated = setHour(dolar.getFechaActualizacion());
+
+                    Dolar dolarFiltered = new Dolar(dolar.getMoneda(),dolar.getCasa(),dolar.getCompra(),dolar.getVenta(),dateUpdated);
+
+                    listDolarFiltered.add(dolarFiltered);
+
+                }
             }
+
+
         }
 
         return listDolarFiltered;
+    }
+
+    public LocalDateTime setHour(LocalDateTime time){
+        return time.minusHours(2);
     }
 
 
